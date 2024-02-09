@@ -1,0 +1,26 @@
+MODIFICACIONES DE: Jaime Martinez
+=====10/10/2023=====
+Añadidos valores constantes en constants.h para referirnos a diferentes objetos: 
+PAWN 'Q' --> Objeto Peon
+CHESSBOARD 'C' --> Objeto Tablero
+
+
+Añadidas dos pestañas en el menu del entornoo para realizar pruebas: 
+-PruebaPiezas
+--Peon		--> Llamada a funcion OnPiezasPeon()
+--Grupo peones 	--> Llamada a funcion OnPiezasGrupoPeones()
+
+
+Nuevas funciones relativas a la pestaña PruebaPiezas añadidas al fichero EntornVGIView.cpp y EntornVGIView.h:
+-OnPiezasGrupoPeones()--> Asigna a la variable objeto el valor correspondiente a la constante CHESSBOARD y llama a la funcion de dibujar escena (dibuixa_EscenaGL())
+-OnPiezasPeon()--> Asigna a la variable objeto el valor correspondiente a la constante PAWN y llama a la funcion de dibujar escena (dibuixa_EscenaGL())
+
+
+Ampliacion de objetos complejos en la llamada dibuixa_EscenaGL() del fichero escena.cpp:
+-case CHESSBOARD --> llama a la funcion Pawn(...) varias veces en posiciones arbitrarias para dibujar varios peones y comprobar el rendimiento.
+-case PAWN --> llama a la funcion Pawn(...) una vez en la posicion origen.
+
+
+Añadida funcion Pawn(...) a escena.cpp y declarada en escena.h:
+-Dibuja, mediante diferenets objetos simples, un figura de un peon del ajedrez. Se dibuja tantas formas como posiciones tenga el vector de posiciones relativas pasado por parametro. Cada peon se dibujará de forma relativa a las coordenadas de su posición.
+

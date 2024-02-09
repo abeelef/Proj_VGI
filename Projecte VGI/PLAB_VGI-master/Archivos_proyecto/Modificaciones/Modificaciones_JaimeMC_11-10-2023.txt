@@ -1,0 +1,9 @@
+MODIFICACIONES DE: Jaime Martinez
+=====11/10/2023=====
+Movida la precarga de las diferentes partes del peon en la llamada a OnPiezasPeon(...) del fichero EntornVGIView.cpp. De la misma forma se ha hecho en la llamada a OnPiezasGrupoPeones(), donde se irá realizando con las diferentes partes de las demás piezas del tablero.
+De esta forma no se carga y descarga innecesariamente partes que se van a renderizar practicamente en todo momento.
+
+Para ello declaramos el vector VAO con mayor tamaño para que podamos almacenar las partes de las piezas en posiciones diferentes al resto de objetos:
+-Posiciones de las partes declaradas en glut_geometry.h
+-Cambio de tamaño maximo de la declaracion del VAOList (glut_geometry.cpp)
+

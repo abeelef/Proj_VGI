@@ -1,0 +1,68 @@
+@startuml
+class Game{
+- playersList : List<Player>
+- currentTable : Table
+- turnPlayer : Player
++ Game(numberPlayer : int, namePlayers : String)
++ getActualState() : Table  
++ getTurnPlayer() : Player
++ killedPieceByPlayer(murder:Player, victimPlayer : Player, killedPiece : Piece)
+
+}
+
+
+class Player{
+- namePlayer : String
+- availablePieces : List
+- deathPieces : List
+- numberOfAvailbalePieces : int
+- numberOfDeathPieces : int
+- winner : Boolean
+
++ Player(name : String, totalPieces : int, myPieces : Piece)
++ isEmptyAvailablePieces() : Boolean
++ getavailablePieces() : List<Piece>
++ isWinner() : Boolean
++ movePiecePlayer(selectedPiece : Piece, toSquare : String)
++ evolutionPiece(unvolvedPiece:Piece, evolvedPiece : Piece)
+}
+
+class Piece{
+-pieceName : String
+- numberOfSquares : int 
++ getNamePiece() : String
++ getNumberOfSquares() : int
+
+}
+
+class Table{
+- tableSquares : Array[Square]
+- tablePiece : List<Piece>
+- squaresAndPiecesPosition : List <pair<Piece,Squares>>
+- ocupied : Boolean
+
++ getSquaresAndPiecesPosition() : List<pair<Piece,Square>>
++ isOcupied(toSquare : Square):Boolean
+}
+
+class TableState{
+- stateTableList : List <Table>
+- numberOfStates : int
++ getStateNumbers() : int 
+
+}
+
+class Squares{
++ squareID : String
++ centralCoords : <tuple<double,double,double>>
+
+
+
+}
+Table -down-> Squares : square
+Table -> Piece : pieces
+Table <-up- TableState : actualTable
+Game -down-> Table:table
+Game -down-> Player:players
+Player -down-> Piece : playerPieces
+@enduml

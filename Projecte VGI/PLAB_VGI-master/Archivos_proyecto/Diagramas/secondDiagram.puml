@@ -1,0 +1,54 @@
+@startuml
+class Game{
+- playerOne : String
+- playerTwo : String
+- currentBoard: Board
+- currentPlayer : Boolean
+- movements : List<Movement>
++ Game(numberPlayer : int, namePlayers : String)
++ getActualState() : Board
++ getTurnPlayer() : Player
++ killedPieceByPlayer(murder:Player, victimPlayer : Player, killedPiece : Piece)
++ enroque()
++ coronación()
++ movePiece()
+
+}
+
+
+
+class Piece{
+-pieceName : String
+- dead : Boolean
+- colour : Boolean
+- numberOfSquares : int
+- coords :  tuple<double,double,double>
++ getNamePiece() : String
++ getNumberOfSquares() : int
++ isDead() : boolean
+- hitbox : tuple <double, double, double>
+
+}
+
+class Board{
+- myBoard : Piece [][]
+- BoardSquares : Array[Square]
+- BoardPiece : List<Piece>
+
++ getSquaresAndPiecesPosition() : List<pair<Piece,Square>>
+}
+
+class Movement{
+- toSquare : Square
+- fromSquare : Square
+- movedPiece : Piece
++ getStateNumbers() : int 
+
+}
+
+
+Board -> Piece : pieces
+Game -down-> Board: board
+Game -right-> Movement : moves
+
+@enduml

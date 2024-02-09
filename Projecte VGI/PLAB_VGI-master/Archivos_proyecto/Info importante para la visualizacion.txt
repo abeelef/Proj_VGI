@@ -1,0 +1,37 @@
+Informacion utilizada para hacer modelos 3D:
+"GL-3. Primitives Gràfiques.pdf"
+
+
+FUNCIONES IMPORTANTES DE VISUALIZACION Y SU FICHERO:
+
+===constants.h===
+valores constantes: Añadimos uno por cada tipo de objeto
+(los añadimos al principio del fichero, por ejemplo)
+
+===escena.h===
+Fichero donde se declaran las funciones de los objetos dibujados en escena.cpp
+
+IMPORTANTE: añadir las funciones de los nuevos objetos!!
+
+===escena.cpp===
+-dibuixa(...): Dibuja objetos simples
+-dibuixa_EscenaGL(...): Dibuja objetos más complejos. Es donde colocaremos nuestras piezas.
+
+(Al fondo de escenas.cpp estan las diferentes funciones de cada objeto complejo, incluida la del peon: "Pawn(...)")
+
+
+===EntornVGIView.cpp===
+Aqui es donde estan las funciones llamadas al pulsar los diferentes botones del menu del entorno.
+
+Para crear un boton en el menú:
+-Vista de recursos>EntornVGI.rc>Menu>IDR_EntornVGITYPE
+-Añadir pestaña donde se quiera
+-Clickar la pestaña y a la drecha (propiedades/editor de menus)
+en el apartado ID poner un ID.
+
+Para crear una funcion que llamaremos al pulsar el boton:
+-Proyecto>Asistente para clases
+-Nombre de clase: seleccionas donde va a estar la funcion
+a la que se llama al pulsar la pestaña del menu (en nuestro caso EntornVGIView)
+-En la pestaña "Comandos" buscamos el ID asignado al boton del menu.
+-La seleccionamos y clicamos dos veces y nos pedira un nombre de funcion. Al aceptar se creará y nos mandará a ella.
